@@ -1,0 +1,14 @@
+{
+  "name": "messenger",
+  "version": "1.0.0",
+  "description": "Yandex Praktikum Messenger",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "author": "Dmitry Rogov <dmrgv@yandex.ru>",
+  "license": "ISC",
+  "engines": {
+    "node": ">=12"
+  },
+}
