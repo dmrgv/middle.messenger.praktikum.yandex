@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  color: #474563;
+  background: #CAEDEF;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .position-on-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+}

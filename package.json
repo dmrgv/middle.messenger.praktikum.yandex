@@ -4,7 +4,7 @@
   "description": "Yandex Praktikum Messenger",
   "main": "app.js",
   "scripts": {
-    "dev": "./node_modules/.bin/parcel ./static/index.html",
+    "dev": "parcel -p 3000 ./static/index.html",
     "start": "node ./app.js"
   },
   "author": "Dmitry Rogov <dmrgv@yandex.ru>",
@@ -14,6 +14,10 @@
   },
   "devDependencies": {
     "express": "^4.17.1",
-    "parcel": "^2.0.1"
-  }
+    "handlebars": "^4.7.7",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "sass": "^1.43.4"
+  },
+  "dependencies": {}
 }
