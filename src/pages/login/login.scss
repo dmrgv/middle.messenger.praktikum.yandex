@@ -47,19 +47,19 @@
         background: #3369F3;
         color: #fff;
         margin-bottom: 5px;
-      }
 
-      &:first-child:hover {
-        background: #5982e9;
+        &:hover {
+          background: #5982e9;
+        }
       }
 
       &:last-child {
         background: #fff;
         color: #3369F3;
-      }
 
-      &:last-child:hover {
-        background: rgb(235, 233, 233);
+        &:hover {
+          background: rgb(235, 233, 233);
+        }
       }
     }
   }
