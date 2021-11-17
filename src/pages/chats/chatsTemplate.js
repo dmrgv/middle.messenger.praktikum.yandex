@@ -15,24 +15,24 @@ export const chatsTemplate = `<div>
 
       <a href="./500.html">
         <div class='contact'>
-          <span>go to 500</span>
+          <span>Чат с ошибкой 500</span>
         </div>
       </a>
 
       <a href='./404.html'>
         <div class='contact'>
-          <span>go to 404</span>
+          <span>Чат с ошибкой 404</span>
         </div>
       </a>
     </div>
     <div class='messages'>
-      <div class='position-on-center messages-list'>
+      <div class='align-center messages-list'>
         <span class='messages-place'>
           {{emptyText}}
         </span>
       </div>
 
-      <input type="text" class='_chats__message-input' />
+      <input type="text" class='message-input' />
     </div>
   </div>
 </div>`

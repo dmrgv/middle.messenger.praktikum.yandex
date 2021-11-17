@@ -1,7 +1,7 @@
-import Handlebars from 'handlebars'
 import { registerTemplate } from "./registerTemplate"
 import "../../styles/common.scss"
 import "./register.scss"
+import { prepareTemplate} from "../../modules/prepareTemplate"
 
 const data = {
     inputs: [{
@@ -35,8 +35,4 @@ const data = {
     }]
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const regPage = Handlebars.compile(registerTemplate)(data)
-
-    document.body.innerHTML = regPage;
-})
+prepareTemplate(registerTemplate, data)

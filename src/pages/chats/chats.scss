@@ -36,28 +36,28 @@
         background: #53b0b5;
       }
     }
+  }
 
-    .messages {
+  .messages {
+    width: 100%;
+    background: #caedef;
+
+    .messages-list {
+      height: calc(100vh - 40px);
+
+      .messages-place {
+        text-align: center;
+        width: 330px;
+        font-size: 18px;
+      }
+    }
+
+    .message-input {
       width: 100%;
-      background: #caedef;
-
-      .messages-list {
-        height: calc(100vh - 40px);
-
-        .messages-place {
-          text-align: center;
-          width: 330px;
-          font-size: 18px;
-        }
-      }
-
-      .message-input {
-        width: 100%;
-        box-sizing: border-box;
-        border: none;
-        height: 40px;
-        padding: 0 14px;
-      }
+      box-sizing: border-box;
+      border: none;
+      height: 40px;
+      padding: 0 14px;
     }
   }
 }

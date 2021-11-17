@@ -1,7 +1,7 @@
-import Handlebars from 'handlebars'
 import { loginTemplate } from "./loginTemplate"
 import "../../styles/common.scss"
 import "./login.scss"
+import { prepareTemplate } from "../../modules/prepareTemplate";
 
 const data = {
     inputs: [{
@@ -15,8 +15,4 @@ const data = {
     }]
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const pageLogin = Handlebars.compile(loginTemplate)(data);
-
-    document.body.innerHTML = pageLogin;
-})
+prepareTemplate(loginTemplate, data)

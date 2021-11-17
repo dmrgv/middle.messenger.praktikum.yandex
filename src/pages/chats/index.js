@@ -1,7 +1,7 @@
-import Handlebars from 'handlebars'
-import { chatsTemplate } from './chatsTemplate';
+import { chatsTemplate } from './chatsTemplate'
 import "../../styles/common.scss"
-import './chats.css'
+import './chats.scss'
+import { prepareTemplate } from "../../modules/prepareTemplate"
 
 const data = {
     urlToSettings: "./settings.html",
@@ -11,8 +11,4 @@ const data = {
     emptyText: "Выберите контакт или группу"
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const pageChats = Handlebars.compile(chatsTemplate)(data);
-
-    document.body.innerHTML = pageChats;
-})
+prepareTemplate(chatsTemplate, data)
