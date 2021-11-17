@@ -1,5 +1,6 @@
 import Handlebars from 'handlebars'
 import { registerTemplate } from "./registerTemplate"
+import "../../styles/common.scss"
 import "./register.scss"
 
 const data = {

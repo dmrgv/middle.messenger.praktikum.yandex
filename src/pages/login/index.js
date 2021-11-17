@@ -1,5 +1,6 @@
 import Handlebars from 'handlebars'
 import { loginTemplate } from "./loginTemplate"
+import "../../styles/common.scss"
 import "./login.scss"
 
 const data = {
