@@ -4,7 +4,7 @@ import './chats.scss'
 import { prepareTemplate } from "../../modules/prepareTemplate"
 
 const data = {
-    urlToSettings: "./settings.html",
+    urlToSettings: "./profile.html",
     chats: [
         {name: "Foo"}, {name: "Bar"}, {name: "Baz"}
     ],
