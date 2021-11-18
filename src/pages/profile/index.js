@@ -24,16 +24,11 @@ const data = {
     name: "Телефон",
     type: "text",
     inputName: "phone",
-  }],
-  passInputs: [{
+  }, {
     name: "Пароль",
     type: "password",
     inputName: "password",
-  }, {
-    name: "Повторите пароль",
-    type: "password",
-    inputName: "repeat-password",
-  }]
+  }],
 }
 
 prepareTemplate(profileTemplate, data)

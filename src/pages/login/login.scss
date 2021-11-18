@@ -5,62 +5,39 @@
   justify-content: center;
 
   .login-block {
-    width: 250px;
-    background: #f9f9f9;
-    height: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    width: 340px;
+    background: initial;
+    height: 450px;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 12px;
+    position: relative;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 
-    .inputs-block {
-      span {
-        width: 100%;
-        font-size: 14px;
-      }
-
-      input {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 5px;
-        box-sizing: border-box;
-      }
+    h2 {
+      text-align: center;
+      margin-top: 15px;
     }
   }
 
+  .inputs-block {
+    position: relative;
+    top: 15%;
+  }
+
   .buttons-block {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    padding: 0 30px;
+    left: 0;
+    right: 0;
 
     button {
-      padding: 10px 30px;
-      border-radius: 10px;
-      border: none;
+      width: 100%;
+    }
 
-      &:hover {
-        cursor: pointer;
-      }
-
-      &:first-child {
-        background: #3369F3;
-        color: #fff;
-        margin-bottom: 5px;
-
-        &:hover {
-          background: #5982e9;
-        }
-      }
-
-      &:last-child {
-        background: #fff;
-        color: #3369F3;
-
-        &:hover {
-          background: rgb(235, 233, 233);
-        }
-      }
+    button:first-child {
+      margin-bottom: 5px;
     }
   }
 }

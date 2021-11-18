@@ -1,7 +1,8 @@
 body {
   font-family: sans-serif;
-  color: #474563;
-  background: #CAEDEF;
+  color: #1e1e1e;
+  font-size: 13px;
+  background: #fff;
 
   * {
     margin: 0;
@@ -11,6 +12,59 @@ body {
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  .input-block {
+    margin-bottom: 15px;
+
+    span {
+      width: 100%;
+      font-size: 10px;
+      color: #999;
+    }
+
+    input {
+      width: 100%;
+      border-color: #3369F3;
+      border-width: 0 0 1px 0;
+      background: initial;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      padding: 5px 0;
+
+      &:-webkit-autofill {
+        background-color: initial !important;
+        background-image: none !important;
+        color: initial !important;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
+  }
+
+  button {
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    background-color: #9090fd;
+
+    &:hover {
+      background-color: #5982e9;
+    }
+
+    &.link {
+      background-color: initial;
+      color: #3369F3;
+      font-size: 11px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:disabled {
+      background-color: #7e9ff3;
+    }
   }
 
   .align-center {
