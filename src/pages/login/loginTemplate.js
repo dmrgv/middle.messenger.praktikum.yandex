@@ -1,5 +1,5 @@
-export const loginTemplate = `<div class='login-wrapper'>
-  <div class='login-block'>
+export const loginTemplate = `<div class='form-wrapper login-wrapper'>
+  <div class='card-block'>
     <h2>Вход</h2>
     <div class='inputs-block'>
       {{#each inputs}}

@@ -5,6 +5,14 @@ import { prepareTemplate} from "../../modules/prepareTemplate"
 
 const data = {
     inputs: [{
+        name: "Почта",
+        type: "text",
+        inputName: "email",
+    }, {
+        name: "Логин",
+        type: "text",
+        inputName: "login",
+    }, {
         name: "Имя",
         type: "text",
         inputName: "first_name",
@@ -12,14 +20,6 @@ const data = {
         name: "Фамилия",
         type: "text",
         inputName: "second_name",
-    }, {
-        name: "Логин",
-        type: "text",
-        inputName: "login",
-    }, {
-        name: "Почта",
-        type: "text",
-        inputName: "email",
     }, {
         name: "Телефон",
         type: "text",
@@ -29,7 +29,7 @@ const data = {
         type: "password",
         inputName: "password",
     }, {
-        name: "Повторите пароль",
+        name: "Пароль (ещё раз)",
         type: "password",
         inputName: "repeat-password",
     }]

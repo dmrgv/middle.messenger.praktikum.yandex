@@ -16,10 +16,34 @@
       margin-bottom: 30px;
     }
 
+    .input-block {
+      margin-bottom: 15px;
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      align-items: center;
+
+      span {
+        width: auto;
+        color: initial;
+        font-size: initial;
+        font-weight: 500;
+      }
+
+      input {
+        padding: 5px 0 5px 20px;
+        border: none;
+        text-align: right;
+        font-size: initial;
+      }
+    }
+
     .buttons-block {
       display: flex;
-      justify-content: space-between;
       padding-top: 25px;
+
+      .link {
+        margin-right: 20px;
+      }
     }
   }
 }

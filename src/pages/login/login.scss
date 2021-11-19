@@ -1,43 +1,6 @@
 .login-wrapper {
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
 
-  .login-block {
-    width: 340px;
-    background: initial;
+  .card-block {
     height: 450px;
-    padding: 30px;
-    border-radius: 12px;
-    position: relative;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-
-    h2 {
-      text-align: center;
-      margin-top: 15px;
-    }
-  }
-
-  .inputs-block {
-    position: relative;
-    top: 15%;
-  }
-
-  .buttons-block {
-    position: absolute;
-    bottom: 30px;
-    padding: 0 30px;
-    left: 0;
-    right: 0;
-
-    button {
-      width: 100%;
-    }
-
-    button:first-child {
-      margin-bottom: 5px;
-    }
   }
 }

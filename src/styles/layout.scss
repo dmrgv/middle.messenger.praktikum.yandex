@@ -46,7 +46,7 @@ body {
     border-radius: 8px;
     border: none;
     color: #fff;
-    background-color: #9090fd;
+    background-color: #3369F3;
 
     &:hover {
       background-color: #5982e9;
@@ -55,7 +55,11 @@ body {
     &.link {
       background-color: initial;
       color: #3369F3;
-      font-size: 11px;
+      padding: 10px 0;
+
+      &.red {
+        color: #FF0000;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -72,5 +76,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+  }
+
+  .align-right {
+    display: flex;
+    justify-content: right;
+    width: 100%;
   }
 }
