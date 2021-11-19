@@ -8,6 +8,7 @@ const data = {
         name: "Почта",
         type: "text",
         inputName: "email",
+        autocomplete: "email",
     }, {
         name: "Логин",
         type: "text",
@@ -16,22 +17,27 @@ const data = {
         name: "Имя",
         type: "text",
         inputName: "first_name",
+        autocomplete: "given-name",
     }, {
         name: "Фамилия",
         type: "text",
         inputName: "second_name",
+        autocomplete: "family-name",
     }, {
         name: "Телефон",
         type: "text",
         inputName: "phone",
+        autocomplete: "tel",
     }, {
         name: "Пароль",
         type: "password",
         inputName: "password",
+        autocomplete: "new-password",
     }, {
         name: "Пароль (ещё раз)",
         type: "password",
         inputName: "repeat-password",
+        autocomplete: "new-password",
     }]
 }
 
