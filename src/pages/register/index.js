@@ -1,7 +1,7 @@
-import { registerTemplate } from "./registerTemplate"
+import { registerTemplate } from "./register-template"
 import "../../styles/common.scss"
 import "./register.scss"
-import { prepareTemplate} from "../../modules/prepareTemplate"
+import { prepareTemplate} from "../../modules/prepare-template"
 
 const data = {
     inputs: [{

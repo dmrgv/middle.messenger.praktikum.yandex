@@ -1,7 +1,7 @@
-import { notFoundTemplate } from './notFoundTemplate'
+import { notFoundTemplate } from './notfound-template'
 import "../../styles/common.scss"
-import "./notFound.scss"
-import { prepareTemplate } from "../../modules/prepareTemplate"
+import "./notfound.scss"
+import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {
   title: '404',

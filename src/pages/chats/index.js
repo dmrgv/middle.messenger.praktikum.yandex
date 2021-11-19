@@ -1,7 +1,7 @@
-import { chatsTemplate } from './chatsTemplate'
+import { chatsTemplate } from './chats-template'
 import "../../styles/common.scss"
 import './chats.scss'
-import { prepareTemplate } from "../../modules/prepareTemplate"
+import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {
     urlToSettings: "./profile.html",

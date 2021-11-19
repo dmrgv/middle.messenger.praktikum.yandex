@@ -1,7 +1,7 @@
-import { loginTemplate } from "./loginTemplate"
+import { loginTemplate } from "./login-template"
 import "../../styles/common.scss"
 import "./login.scss"
-import { prepareTemplate } from "../../modules/prepareTemplate";
+import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {
     inputs: [{

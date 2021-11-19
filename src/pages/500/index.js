@@ -1,7 +1,7 @@
-import { serverErrorTemplate } from "./serverErrorTemplate"
+import { serverErrorTemplate } from "./servererror-template"
 import "../../styles/common.scss"
-import "./serverError.scss"
-import { prepareTemplate } from "../../modules/prepareTemplate"
+import "./servererror.scss"
+import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {
   title: '500',
