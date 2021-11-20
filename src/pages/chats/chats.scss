@@ -1,46 +1,55 @@
 .wrapper {
-  height: 100vh;
   display: flex;
 
   .list {
     width: 300px;
-    background: #469ba0;
+    background-color: #fbfbfb;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
 
     .search-wrapper {
       display: flex;
       padding: 20px 10px;
+      flex-direction: column;
 
       .profile-menu {
-        width: 40px;
-        font-size: 20px;
         cursor: pointer;
+        text-align: right;
+        margin-bottom: 20px;
+        color: #887575;
+        font-size: 12px;
       }
 
       .search {
         padding: 5px;
         border: none;
-        background: #5bc9d0;
-        border-radius: 2px;
+        border-radius: 4px;
         width: 100%;
         box-sizing: border-box;
+        background-color: #efefef;
+        text-align: center;
+        outline: none;
       }
     }
 
     .contact {
-      padding: 10px 5px;
-      margin-bottom: 5px;
-      background: #3c8084;
+      cursor: pointer;
 
       &:hover {
-        cursor: pointer;
-        background: #53b0b5;
+        background-color: #e4edfd;
+      }
+
+      .content {
+        border-top: 1px solid #ccc;
+        margin: 0 10px;
+        padding: 20px 10px;
       }
     }
   }
 
   .messages {
     width: 100%;
-    background: #caedef;
+    background: initial;
 
     .messages-list {
       height: calc(100vh - 40px);

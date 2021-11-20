@@ -6,7 +6,7 @@ import { prepareTemplate } from "../../modules/prepare-template"
 const data = {
     urlToSettings: "./profile.html",
     chats: [
-        {name: "Foo"}, {name: "Bar"}, {name: "Baz"}
+        {name: "Чат 1"}, {name: "Чат 2"}, {name: "Чат 3"}
     ],
     emptyText: "Выберите контакт или группу"
 }
