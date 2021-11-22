@@ -1,5 +1,4 @@
 import { registerTemplate } from "./register-template"
-import "./register.scss"
 import { prepareTemplate} from "../../modules/prepare-template"
 
 const data = {
