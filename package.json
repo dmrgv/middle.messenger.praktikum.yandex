@@ -4,7 +4,7 @@
   "description": "Yandex Praktikum Messenger",
   "main": "app.js",
   "scripts": {
-    "dev": "parcel -p 3000 ./static/index.html",
+    "dev": "parcel -p 3000 ./static/*.html",
     "build": "parcel build ./static/*.html --no-cache --no-minify",
     "start": "npm run build && node ./app.js"
   },
@@ -14,11 +14,11 @@
     "node": ">=12"
   },
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "handlebars": "^4.7.7",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "sass": "^1.43.4"
-  },
-  "dependencies": {}
+  }
 }

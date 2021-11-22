@@ -17,12 +17,16 @@
     padding: 30px;
     border-radius: 12px;
     position: relative;
-    border: 1px solid #ccc;
+    border: 1px solid $formBorderColor;
     box-sizing: border-box;
 
     h2 {
       text-align: center;
       margin-top: 15px;
+    }
+
+    form {
+      height: 100%;
     }
 
     .inputs-block {
@@ -37,12 +41,22 @@
       left: 0;
       right: 0;
 
-      button {
+      label {
+        display: flex;
+        justify-content: center;
+
+        &:first-child {
+          margin-bottom: 5px;
+        }
+      }
+
+      .button {
         width: 100%;
       }
 
-      button:first-child {
-        margin-bottom: 5px;
+      a {
+        display: block;
+        text-align: center;
       }
     }
   }

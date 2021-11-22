@@ -14,21 +14,17 @@ export const chatsTemplate = `<div>
         </div>
       {{/each}}
 
-      <a href="./500.html">
-        <div class='contact'>
-          <div class='content'>  
-            <span>Чат с ошибкой 500</span>
-          </div>
+      <div class='contact'>
+        <div class='content'>  
+          <a href="./500.html">Чат с ошибкой 500</a>
         </div>
-      </a>
+      </div>
 
-      <a href='./404.html'>
-        <div class='contact'>
-          <div class='content'>  
-            <span>Чат с ошибкой 404</span>
-          </div>
+      <div class='contact'>
+        <div class='content'>  
+          <a href="./404.html">Чат с ошибкой 404</a>
         </div>
-      </a>
+      </div>
     </div>
     <div class='messages'>
       <div class='align-center messages-list'>

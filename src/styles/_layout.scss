@@ -1,8 +1,8 @@
 body {
   font-family: sans-serif;
-  color: #1e1e1e;
-  font-size: 13px;
-  background: #fff;
+  color: $bodyTextColor;
+  font-size: $fontSizeRegular;
+  background: $bodyBgColor;
   margin: 0;
   padding: 0;
 
@@ -19,15 +19,15 @@ body {
   .input-block {
     margin-bottom: 15px;
 
-    span {
+    label:first-child {
       width: 100%;
-      font-size: 10px;
-      color: #999;
+      font-size: $fontSizeSmall;
+      color: $formLabelColor;
     }
 
     input {
       width: 100%;
-      border-color: #3369F3;
+      border-color: $formInputBorderColor;
       border-width: 0 0 1px 0;
       background: initial;
       outline: none;
@@ -43,33 +43,33 @@ body {
     }
   }
 
-  button {
+  .button {
     padding: 10px 30px;
     border-radius: 8px;
     border: none;
-    color: #fff;
-    background-color: #3369F3;
+    color: $formButtonTextColor;
+    background-color: $formButtonBgColor;
 
     &:hover {
-      background-color: #5982e9;
-    }
-
-    &.link {
-      background-color: initial;
-      color: #3369F3;
-      padding: 10px 0;
-
-      &.red {
-        color: #FF0000;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
+      background-color: $formButtonBgHoverColor;
     }
 
     &:disabled {
-      background-color: #7e9ff3;
+      background-color: $formButtonBgDisabledColor;
+    }
+  }
+
+  .link {
+    background-color: initial;
+    color: $formLinkColor;
+    padding: 10px 0;
+
+    &.red {
+      color: $formLinkWarnColor;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 

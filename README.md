@@ -9,5 +9,7 @@
 1. Прототипы экранов находятся в каталоге ui.
 2. Шаблонизатор - handlebars.
 3. Сборщик - parcel.
-4. Раздача статики производится через express. 
+4. Раздача статики производится через express.
+
+Ссылка на PR: https://github.com/dmrgv/middle.messenger.praktikum.yandex/pull/1 
   
