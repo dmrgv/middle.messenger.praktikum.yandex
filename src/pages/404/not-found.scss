@@ -1,3 +1,5 @@
+@import '../../styles/common.scss';
+
 .wrapper {
   * {
     width: 100%;
@@ -6,12 +8,12 @@
   }
 
   p {
-    font-size: 130px;
+    font-size: $fontSizeBiggest;
     font-weight: bold;
   }
 
   a {
     cursor: pointer;
-    color: #3369F3;
+    color: $formLinkColor;
   }
 }

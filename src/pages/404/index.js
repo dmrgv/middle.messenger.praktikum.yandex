@@ -1,6 +1,5 @@
-import { notFoundTemplate } from './notfound-template'
-import "../../styles/common.scss"
-import "./notfound.scss"
+import { notFoundTemplate } from './not-found-template'
+import "./not-found.scss"
 import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {

@@ -1,10 +1,13 @@
+@import '../../styles/common.scss';
+
 .wrapper {
   display: flex;
+  height: 100vh;
 
   .list {
     width: 300px;
-    background-color: #fbfbfb;
-    border-right: 1px solid #ccc;
+    background-color: $formPanelBgColor;
+    border-right: 1px solid $formBorderColor;
     box-sizing: border-box;
 
     .search-wrapper {
@@ -16,7 +19,7 @@
         cursor: pointer;
         text-align: right;
         margin-bottom: 20px;
-        color: #887575;
+        color: $chatsSearchTextColor;
         font-size: 12px;
       }
 
@@ -26,7 +29,7 @@
         border-radius: 4px;
         width: 100%;
         box-sizing: border-box;
-        background-color: #efefef;
+        background-color: $chatsSearchBgColor;
         text-align: center;
         outline: none;
       }
@@ -36,11 +39,11 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #e4edfd;
+        background-color: $chatsContactBgColor;
       }
 
       .content {
-        border-top: 1px solid #ccc;
+        border-top: 1px solid $formBorderColor;
         margin: 0 10px;
         padding: 20px 10px;
       }
@@ -57,7 +60,7 @@
       .messages-place {
         text-align: center;
         width: 330px;
-        font-size: 18px;
+        font-size: $fontSizeMedium;
       }
     }
 

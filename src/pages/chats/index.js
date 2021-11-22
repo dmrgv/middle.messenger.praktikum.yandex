@@ -1,5 +1,4 @@
 import { chatsTemplate } from './chats-template'
-import "../../styles/common.scss"
 import './chats.scss'
 import { prepareTemplate } from "../../modules/prepare-template"
 

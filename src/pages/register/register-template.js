@@ -5,18 +5,18 @@ export const registerTemplate = `<div class='form-wrapper register-wrapper'>
         <div class='inputs-block'>
           {{#each inputs}}
           <div class='input-block'>
-            <span>{{this.name}}</span>
+            <label for='{{this.inputId}}'>{{this.name}}</label>
             {{#if autocomplete}}
-            <input name='{{this.inputName}}' type='{{this.type}}' autocomplete='{{this.autocomplete}}' />
+            <input id='{{this.inputId}}' name='{{this.inputName}}' type='{{this.type}}' autocomplete='{{this.autocomplete}}' />
             {{else}}
-            <input name='{{this.inputName}}' type='{{this.type}}' />
+            <input id='{{this.inputId}}' name='{{this.inputName}}' type='{{this.type}}' />
             {{/if}}
           </div>  
           {{/each}}
         </div>
         <div class='buttons-block'>
-          <button id='register-sign-up'><a href="./chats.html">Зарегистрироваться</a></button>
-          <button id='register-sign-in' class="link"><a href="./">Войти</a></button>
+          <label><a id='register-sign-up' href='./chats.html' class='button'>Зарегистрироваться</a></label>
+          <label><a id='register-sign-in' href='./index.html' class='link'>Войти</a></label>
         </div>
     </form>
   </div>

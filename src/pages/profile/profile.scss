@@ -1,3 +1,5 @@
+@import '../../styles/common.scss';
+
 .wrapper {
 
   .profile-block {
@@ -10,7 +12,7 @@
       height: 100px;
       width: 100px;
       cursor: pointer;
-      border: 1px solid #000;
+      border: 1px solid $formBorderColor;
       border-radius: 50%;
       margin: auto;
       margin-bottom: 30px;
@@ -19,10 +21,10 @@
     .input-block {
       margin-bottom: 15px;
       display: flex;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid $formBorderColor;
       align-items: center;
 
-      span {
+      label {
         width: auto;
         color: initial;
         font-size: initial;
@@ -40,6 +42,10 @@
     .buttons-block {
       display: flex;
       padding-top: 25px;
+
+      label {
+        padding: 10px 0;
+      }
 
       .link {
         margin-right: 20px;
