@@ -4,8 +4,8 @@
   "description": "Yandex Praktikum Messenger",
   "main": "app.js",
   "scripts": {
-    "dev": "parcel -p 3000 ./static/*.html",
-    "build": "parcel build ./static/*.html --no-cache --no-source-maps --no-minify",
+    "dev": "parcel -p 3000 static/*.html",
+    "build": "parcel build static/index.html --no-cache --no-source-maps --no-minify",
     "start": "npm run build && node ./app.js"
   },
   "author": "Dmitry Rogov <dmrgv@yandex.ru>",
