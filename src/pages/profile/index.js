@@ -1,4 +1,5 @@
 import { profileTemplate } from './profile-template'
+import "./profile.scss"
 import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {

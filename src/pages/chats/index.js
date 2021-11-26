@@ -1,4 +1,5 @@
 import { chatsTemplate } from './chats-template'
+import "./chats.scss"
 import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {

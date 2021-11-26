@@ -1,4 +1,5 @@
 import { serverErrorTemplate } from "./server-error-template"
+import "./server-error.scss"
 import { prepareTemplate } from "../../modules/prepare-template"
 
 const data = {
