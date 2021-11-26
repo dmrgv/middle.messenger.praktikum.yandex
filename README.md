@@ -11,5 +11,6 @@
 3. Сборщик - parcel.
 4. Раздача статики производится через express.
 
-Ссылка на PR: https://github.com/dmrgv/middle.messenger.praktikum.yandex/pull/1 
-  
+Ссылка на PR: https://github.com/dmrgv/middle.messenger.praktikum.yandex/pull/1
+Деплой в Netlify: https://stupefied-spence-8ae084.netlify.app/
+Пример макета экранов: https://www.figma.com/file/ZneKAfIYMIFFSQVwGCENWZ/Chat  
