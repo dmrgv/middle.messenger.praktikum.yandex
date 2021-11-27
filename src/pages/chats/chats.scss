@@ -1,0 +1,75 @@
+@import '../../styles/common.scss';
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+
+  .list {
+    width: 300px;
+    background-color: $formPanelBgColor;
+    border-right: 1px solid $formBorderColor;
+    box-sizing: border-box;
+
+    .search-wrapper {
+      display: flex;
+      padding: 20px 10px;
+      flex-direction: column;
+
+      .profile-menu {
+        cursor: pointer;
+        text-align: right;
+        margin-bottom: 20px;
+        color: $chatsSearchTextColor;
+        font-size: 12px;
+      }
+
+      .search {
+        padding: 5px;
+        border: none;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: $chatsSearchBgColor;
+        text-align: center;
+        outline: none;
+      }
+    }
+
+    .contact {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $chatsContactBgColor;
+      }
+
+      .content {
+        border-top: 1px solid $formBorderColor;
+        margin: 0 10px;
+        padding: 20px 10px;
+      }
+    }
+  }
+
+  .messages {
+    width: 100%;
+    background: initial;
+
+    .messages-list {
+      height: calc(100vh - 40px);
+
+      .messages-place {
+        text-align: center;
+        width: 330px;
+        font-size: $fontSizeMedium;
+      }
+    }
+
+    .message-input {
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      height: 40px;
+      padding: 0 14px;
+    }
+  }
+}

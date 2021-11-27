@@ -1,0 +1,19 @@
+@import '../../styles/common.scss';
+
+.wrapper {
+  * {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  p {
+    font-size: $fontSizeBiggest;
+    font-weight: bold;
+  }
+
+  a {
+    cursor: pointer;
+    color: $formLinkColor;
+  }
+}
