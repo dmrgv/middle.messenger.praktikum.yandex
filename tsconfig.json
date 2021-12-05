@@ -1,0 +1,14 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "rootDir": "src",
+    "target": "es6",
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "alwaysStrict": true,
+    "lib": ["dom", "es6", "dom.iterable"],
+    "outDir": "dist/sources"
+  }
+}
