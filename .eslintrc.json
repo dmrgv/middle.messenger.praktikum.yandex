@@ -22,6 +22,8 @@
     "rules": {
         "no-trailing-spaces": "error",
         "no-multiple-empty-lines": "error",
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "no-underscore-dangle": "off",
+        "class-methods-use-this": "off"
     }
 }
