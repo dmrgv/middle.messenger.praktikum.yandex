@@ -1,6 +1,6 @@
-import { profileTemplate } from './profile-template'
+import profileTemplate from './profile-template'
 import './profile.scss'
-import { prepareTemplate } from '../../modules/prepare-template'
+import prepareTemplate from '../../modules/prepare-template'
 
 const data = {
   inputs: [

@@ -1,6 +1,6 @@
-import { chatsTemplate } from './chats-template'
+import chatsTemplate from './chats-template'
 import './chats.scss'
-import { prepareTemplate } from '../../modules/prepare-template'
+import prepareTemplate from '../../modules/prepare-template'
 
 const data = {
   urlToSettings: './profile.html',
