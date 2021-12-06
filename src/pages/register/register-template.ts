@@ -1,4 +1,4 @@
-export const registerTemplate = `<div class='form-wrapper register-wrapper'>
+const registerTemplate = `<div class='form-wrapper register-wrapper'>
   <div class='card-block'>
     <h2>Регистрация</h2>
     <form autocomplete="on">
@@ -21,3 +21,5 @@ export const registerTemplate = `<div class='form-wrapper register-wrapper'>
     </form>
   </div>
 </div>`
+
+export default registerTemplate

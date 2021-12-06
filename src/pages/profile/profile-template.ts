@@ -1,4 +1,4 @@
-export const profileTemplate = `<div class='align-center wrapper'>
+const profileTemplate = `<div class='align-center wrapper'>
   <div class="profile-block">
     <form>
         <div class='photo'>Avatar</div>
@@ -23,3 +23,4 @@ export const profileTemplate = `<div class='align-center wrapper'>
   </div>
 </div>`
 
+export default profileTemplate

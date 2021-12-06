@@ -1,4 +1,4 @@
-export const chatsTemplate = `<div>
+const chatsTemplate = `<div>
   <div class='wrapper'>
     <div class='list'>
       <div class='search-wrapper'>
@@ -35,3 +35,5 @@ export const chatsTemplate = `<div>
     </div>
   </div>
 </div>`
+
+export default chatsTemplate
