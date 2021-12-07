@@ -78,19 +78,20 @@ export default class Block {
 
   _makePropsProxy(props: { [key: string]: any }) {
     return new Proxy(props, {
-      get(target, prop: keyof typeof target) {
-        if (typeof prop === 'string' && prop.indexOf('_') === 0) {
+      get(target, prop: string) {
+        if (prop.startsWith('_')) {
           throw new Error('No access rights')
         }
 
         const value = target[prop]
         return typeof value === 'function' ? value.bind(target) : value
       },
-      set: (target, prop, value) => {
-        if (prop?.indexOf('_') === 0) {
+      set: (target, prop: string, value) => {
+        if (prop.startsWith('_')) {
           throw new Error('No access rights')
         }
-        target[prop as keyof typeof target] = value
+        // eslint-disable-next-line no-param-reassign
+        target[prop] = value
 
         this.eventBus().emit(Block.EVENTS.FLOW_CDU, this.props, target)
         return true
@@ -114,15 +115,15 @@ export default class Block {
 
   componentDidMount() {}
 
-  _componentDidUpdate(oldProps, newProps) {
-    const response = this.shouldComponentUpdate(oldProps, newProps)
+  _componentDidUpdate(oldProps: { [key: string]: any }, newProps: { [key: string]: any }) {
+    const response = this.componentDidUpdate(oldProps, newProps)
 
     if (response) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
     }
   }
 
-  shouldComponentUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: { [key: string]: any }, newProps: { [key: string]: any }) {
     return oldProps !== newProps
   }
 }
