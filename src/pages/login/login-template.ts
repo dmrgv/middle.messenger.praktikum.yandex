@@ -4,10 +4,7 @@ const loginTemplate = `<div class='form-wrapper login-wrapper'>
     <form autocomplete="off">
         <div class='inputs-block'>
           {{#each inputs}}
-          <div class='input-block'>
-            <label for='{{this.inputId}}'>{{this.name}}</label>
-            <input id='{{this.inputId}}' name='{{this.inputName}}' type='{{this.type}}' />
-          </div>  
+            {{{input}}}
           {{/each}}
         </div>
         <div class='buttons-block'>

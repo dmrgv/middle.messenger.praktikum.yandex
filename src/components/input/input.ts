@@ -4,7 +4,7 @@ import inputTemplate from './input-template'
 interface InputProps {
   className?: string
   name: string
-  id?: string
+  inputId: string
   inputName: string
   type: string
   value?: string
@@ -27,13 +27,13 @@ export default class Input extends Block {
         this.setProps({
           error: value ? this.props.validationText : 'Поле не должно быть пустым',
           value,
-          inputErrorClassName: 'error-validation',
+          className: 'error',
         })
       } else {
         this.setProps({
           error: '',
           value,
-          inputErrorClassName: '',
+          className: '',
         })
       }
     })
