@@ -10,9 +10,11 @@ const inputTemplate: string = `
         type='{{type}}'
         class="{{className}}"
       />
+      <div>
       {{#if error}}
         <span class="error">{{error}}</span>
       {{/if}}
+      </div>
   </div>
 `
 

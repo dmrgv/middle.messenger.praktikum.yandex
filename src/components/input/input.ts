@@ -8,8 +8,8 @@ interface InputProps {
   inputName: string
   type: string
   value?: string
-  validation?: string
-  validationText?: string
+  validator?: string
+  errorText?: string
   inputErrorClassName: string
 }
 
@@ -23,9 +23,9 @@ export default class Input extends Block {
 
     input.addEventListener('blur', (e: FocusEvent) => {
       const { value } = e.target as HTMLInputElement
-      if (!this.props.validation.test(value)) {
+      if (!this.props.validator.test(value)) {
         this.setProps({
-          error: value ? this.props.validationText : 'Поле не должно быть пустым',
+          error: value ? this.props.errorText : 'Поле не должно быть пустым',
           value,
           className: 'error',
         })

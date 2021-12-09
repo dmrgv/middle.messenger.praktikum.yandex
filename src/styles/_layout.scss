@@ -41,6 +41,14 @@ body {
         transition: background-color 5000s ease-in-out 0s;
       }
     }
+
+    div {
+      margin-top: 5px;
+    }
+
+    .error {
+      color: $errorTextColor;
+    }
   }
 
   .button {
