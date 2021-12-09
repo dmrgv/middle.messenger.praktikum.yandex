@@ -14,8 +14,8 @@ interface InputProps {
 }
 
 export default class Input extends Block {
-  constructor(props: InputProps) {
-    super(inputTemplate, props)
+  constructor(props: object) {
+    super(inputTemplate, props as InputProps)
   }
 
   componentDidMount() {
