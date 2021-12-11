@@ -4,7 +4,6 @@ export interface LoginPageProps {
     type: string
     inputId: string
     inputName: string
-    id: string
     validator: RegExp
     errorText: string
   }[]

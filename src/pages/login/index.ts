@@ -14,7 +14,7 @@ export default class Login extends Block {
 
   componentDidMount() {
     this._element?.querySelector('#login-sign-up')?.addEventListener('click', () => {
-      window.location.href = './register'
+      window.location.href = './register.html'
     })
 
     const form = this._element?.getElementsByTagName('form')[0] as HTMLFormElement
