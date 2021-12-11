@@ -1,22 +1,15 @@
 const registerTemplate = `<div class='form-wrapper register-wrapper'>
   <div class='card-block'>
     <h2>Регистрация</h2>
-    <form autocomplete="on">
+    <form id='register-form' autocomplete='on'>
         <div class='inputs-block'>
           {{#each inputs}}
-          <div class='input-block'>
-            <label for='{{this.inputId}}'>{{this.name}}</label>
-            {{#if autocomplete}}
-            <input id='{{this.inputId}}' name='{{this.inputName}}' type='{{this.type}}' autocomplete='{{this.autocomplete}}' />
-            {{else}}
-            <input id='{{this.inputId}}' name='{{this.inputName}}' type='{{this.type}}' />
-            {{/if}}
-          </div>  
+            {{{input}}}
           {{/each}}
         </div>
         <div class='buttons-block'>
-          <label><a id='register-sign-up' href='./chats.html' class='button'>Зарегистрироваться</a></label>
-          <label><a id='register-sign-in' href='./index.html' class='link'>Войти</a></label>
+          <label><button id='register-sign-up' type='submit' class='button' form='register-form'>Зарегистрироваться</button></label>
+          <label>{{{button}}}</label>  
         </div>
     </form>
   </div>

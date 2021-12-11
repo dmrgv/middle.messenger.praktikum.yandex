@@ -22,18 +22,20 @@ export default class Input extends Block {
     const input = this._element.querySelector('input') as HTMLInputElement
 
     input.addEventListener('blur', (e: FocusEvent) => {
-      const { value } = e.target as HTMLInputElement
+      const { value, classList } = e.target as HTMLInputElement
       if (!this.props.validator.test(value)) {
+        classList.add('error')
         this.setProps({
           error: value ? this.props.errorText : 'Поле не должно быть пустым',
           value,
-          className: 'error',
+          className: classList.toString(),
         })
       } else {
+        classList.remove('error')
         this.setProps({
           error: '',
           value,
-          className: '',
+          className: classList.toString(),
         })
       }
     })

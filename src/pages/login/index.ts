@@ -1,4 +1,4 @@
-import loginTemplate from './login-template'
+import authTemplate from './auth-template'
 import Block from '../../modules/block'
 import './login.scss'
 // import prepareTemplate from '../../modules/prepare-template'
@@ -9,7 +9,7 @@ import Input from '../../components/input/input'
 
 export default class Login extends Block {
   constructor(props: PageProps) {
-    super(loginTemplate, props)
+    super(authTemplate, props)
   }
 
   componentDidMount() {
@@ -29,7 +29,7 @@ export default class Login extends Block {
       e.preventDefault()
       let error = false
 
-      const newChildren = this.props.children.map((childData: object) => {
+      const newChildren = this.props.children.map((childData: { inputId: string; validator: RegExp; errorText: string }) => {
         const elem = this._element?.querySelector(`#${childData.inputId}`) as HTMLInputElement
         if (!childData.validator.test(elem.value)) {
           error = true

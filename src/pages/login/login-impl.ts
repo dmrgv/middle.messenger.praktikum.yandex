@@ -4,7 +4,7 @@ import { LoginPageProps } from './login-model'
 
 const pageData: LoginPageProps = {
   button: new Button({
-    className: 'secondary-button',
+    className: 'link',
     id: 'login-sign-up',
     buttonText: 'Нет аккаунта?',
   }).render(),
