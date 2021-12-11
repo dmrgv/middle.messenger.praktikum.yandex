@@ -1,12 +1,22 @@
 import serverErrorTemplate from './server-error-template'
 import './server-error.scss'
-import prepareTemplate from '../../modules/prepare-template'
+// import prepareTemplate from '../../modules/prepare-template'
+import render from '../../modules/render-dom'
+import { PageServerErrorProps as PageProps } from './server-error-model'
+import pageData from './server-error-impl'
+import Block from '../../modules/block'
 
-const data = {
-  title: '500',
-  description: 'Что-то пошло не так, уже решаем.',
-  buttonText: 'Вернутся к чатам',
-  url: './chats.html',
+export default class PageServerError extends Block {
+  constructor(props: PageProps) {
+    super(serverErrorTemplate, props)
+  }
+
+  componentDidMount() {
+    this._element.querySelector('#go-back-500')?.addEventListener('click', () => {
+      window.location.href = './chats.html'
+    })
+  }
 }
 
-prepareTemplate(serverErrorTemplate, data)
+// prepareTemplate(serverErrorTemplate, data)
+render(new PageServerError(pageData))
