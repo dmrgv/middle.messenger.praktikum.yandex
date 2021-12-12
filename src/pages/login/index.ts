@@ -1,8 +1,7 @@
 import authTemplate from './auth-template'
 import Block from '../../modules/block'
 import './login.scss'
-// import prepareTemplate from '../../modules/prepare-template'
-import render from '../../modules/render-dom'
+import prepareTemplate from '../../modules/prepare-template'
 import { LoginPageProps as PageProps } from './login-model'
 import pageData from './login-impl'
 import Input from '../../components/input/input'
@@ -57,5 +56,4 @@ export default class Login extends Block {
   }
 }
 
-// prepareTemplate(loginTemplate, pageData)
-render(new Login(pageData))
+prepareTemplate(new Login(pageData))

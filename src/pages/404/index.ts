@@ -1,8 +1,7 @@
 import notFoundTemplate from './not-found-template'
 import Block from '../../modules/block'
 import './not-found.scss'
-// import prepareTemplate from '../../modules/prepare-template'
-import render from '../../modules/render-dom'
+import prepareTemplate from '../../modules/prepare-template'
 import { PageNotFoundProps as PageProps } from './not-found-model'
 import pageData from './not-found-impl'
 
@@ -18,5 +17,4 @@ export default class PageNotFound extends Block {
   }
 }
 
-// prepareTemplate(notFoundTemplate, data)/
-render(new PageNotFound(pageData))
+prepareTemplate(new PageNotFound(pageData))

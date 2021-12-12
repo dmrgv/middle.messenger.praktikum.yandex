@@ -9,7 +9,7 @@ const profileTemplate = `<div class='align-center wrapper'>
           <label>{{{logoutButton}}}</label>
           <div class="align-right">   
               <label>{{{backButton}}}</label>  
-              <label><button id='profile-save' type='submit' class='button' disabled='disabled'>{{submitButtonText}}</button></label>
+              <label><button id='profile-save' type='submit' class='button'>{{submitButtonText}}</button></label>
           </div>
         </div>
     </form>

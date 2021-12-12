@@ -1,9 +1,10 @@
-import * as Handlebars from 'handlebars'
+import Block from './block'
 
-function prepareTemplate(templateStr: string, data: object) {
+function prepareTemplate(component: Block, root: HTMLElement = document.body) {
   document.addEventListener('DOMContentLoaded', () => {
-    document.body.innerHTML = Handlebars.compile(templateStr)(data)
+    root.append(component.getContent())
   })
+  return root
 }
 
 export default prepareTemplate

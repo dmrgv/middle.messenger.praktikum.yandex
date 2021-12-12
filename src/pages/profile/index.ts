@@ -1,8 +1,7 @@
 import profileTemplate from './profile-template'
 import Block from '../../modules/block'
 import './profile.scss'
-// import prepareTemplate from '../../modules/prepare-template'
-import render from '../../modules/render-dom'
+import prepareTemplate from '../../modules/prepare-template'
 import { ProfilePageProps as PageProps } from './profile-model'
 import pageData from './profile-impl'
 import Input from '../../components/input/input'
@@ -54,5 +53,4 @@ export default class Profile extends Block {
   }
 }
 
-// prepareTemplate(profileTemplate, data)
-render(new Profile(pageData))
+prepareTemplate(new Profile(pageData))

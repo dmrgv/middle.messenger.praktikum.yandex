@@ -10,7 +10,7 @@ const inputTemplate: string = `
         type='{{type}}'
         class="{{className}}"
       />
-      <div>
+      <div class="bottom">
       {{#if error}}
         <span class="error">{{error}}</span>
       {{/if}}

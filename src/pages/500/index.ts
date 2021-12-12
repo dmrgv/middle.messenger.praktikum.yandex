@@ -1,7 +1,6 @@
 import serverErrorTemplate from './server-error-template'
 import './server-error.scss'
-// import prepareTemplate from '../../modules/prepare-template'
-import render from '../../modules/render-dom'
+import prepareTemplate from '../../modules/prepare-template'
 import { PageServerErrorProps as PageProps } from './server-error-model'
 import pageData from './server-error-impl'
 import Block from '../../modules/block'
@@ -18,5 +17,4 @@ export default class PageServerError extends Block {
   }
 }
 
-// prepareTemplate(serverErrorTemplate, data)
-render(new PageServerError(pageData))
+prepareTemplate(new PageServerError(pageData))

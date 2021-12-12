@@ -1,8 +1,7 @@
 import authTemplate from './register-template'
 import Block from '../../modules/block'
 import './register.scss'
-// import prepareTemplate from '../../modules/prepare-template'
-import render from '../../modules/render-dom'
+import prepareTemplate from '../../modules/prepare-template'
 import { RegisterPageProps as PageProps } from './register-model'
 import pageData from './register-impl'
 import Input from '../../components/input/input'
@@ -51,5 +50,4 @@ export default class Register extends Block {
   }
 }
 
-// prepareTemplate(registerTemplate, data)
-render(new Register(pageData))
+prepareTemplate(new Register(pageData))
