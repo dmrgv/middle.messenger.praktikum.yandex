@@ -18,15 +18,21 @@ export default class Login extends Block {
     })
 
     const form = this._element?.getElementsByTagName('form')[0] as HTMLFormElement
+    const inputs: string[] = []
 
     this.props.children.forEach((child: object) => {
       const input = new Input(child).getContent()
+      inputs.push((child as { inputId: string }).inputId)
       const target = form.querySelector('.inputs-block')
       if (target) target.appendChild(input)
     })
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e: SubmitEvent) => {
       e.preventDefault()
+      const { elements } = e.target as { elements?: { namedItem: Function } }
+      inputs.forEach((inputId) => {
+        console.log(`${inputId}: ${elements?.namedItem(inputId).value}`)
+      })
       let error = false
 
       const newChildren = this.props.children.map((childData: { inputId: string; validator: RegExp; errorText: string }) => {
