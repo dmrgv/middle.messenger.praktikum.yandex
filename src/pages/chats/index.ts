@@ -1,11 +1,9 @@
 import chatsTemplate from './chats-template'
+import Block from '../../modules/block'
 import './chats.scss'
-import prepareTemplate from '../../modules/prepare-template'
+// import prepareTemplate from '../../modules/prepare-template'
+import render from '../../modules/render-dom'
+import pageData from './chats-impl'
 
-const data = {
-  urlToSettings: './profile.html',
-  chats: [{ name: 'Чат 1' }, { name: 'Чат 2' }, { name: 'Чат 3' }],
-  emptyText: 'Выберите контакт или группу',
-}
-
-prepareTemplate(chatsTemplate, data)
+// prepareTemplate(chatsTemplate, data)
+render(new Block(chatsTemplate, pageData))

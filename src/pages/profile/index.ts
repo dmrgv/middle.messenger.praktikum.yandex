@@ -1,46 +1,58 @@
 import profileTemplate from './profile-template'
+import Block from '../../modules/block'
 import './profile.scss'
-import prepareTemplate from '../../modules/prepare-template'
+// import prepareTemplate from '../../modules/prepare-template'
+import render from '../../modules/render-dom'
+import { ProfilePageProps as PageProps } from './profile-model'
+import pageData from './profile-impl'
+import Input from '../../components/input/input'
 
-const data = {
-  inputs: [
-    {
-      name: 'Имя',
-      type: 'text',
-      inputId: 'first_name',
-      inputName: 'first_name',
-    },
-    {
-      name: 'Фамилия',
-      type: 'text',
-      inputId: 'second_name',
-      inputName: 'second_name',
-    },
-    {
-      name: 'Логин',
-      type: 'text',
-      inputId: 'login',
-      inputName: 'login',
-    },
-    {
-      name: 'Почта',
-      type: 'text',
-      inputId: 'email',
-      inputName: 'email',
-    },
-    {
-      name: 'Телефон',
-      type: 'text',
-      inputId: 'phone',
-      inputName: 'phone',
-    },
-    {
-      name: 'Пароль',
-      type: 'password',
-      inputId: 'password',
-      inputName: 'password',
-    },
-  ],
+export default class Profile extends Block {
+  constructor(props: PageProps) {
+    super(profileTemplate, props)
+  }
+
+  componentDidMount() {
+    this._element?.querySelector('#profile-logout')?.addEventListener('click', () => {
+      window.location.href = './index.html'
+    })
+    this._element?.querySelector('#profile-back')?.addEventListener('click', () => {
+      window.location.href = './chats.html'
+    })
+
+    const form = this._element?.getElementsByTagName('form')[0] as HTMLFormElement
+
+    this.props.children.forEach((child: object) => {
+      const input = new Input(child).getContent()
+      const target = form.querySelector('.inputs-block')
+      if (target) target.appendChild(input)
+    })
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      let error = false
+
+      const newChildren = this.props.children.map((childData: { inputId: string; validator: RegExp; errorText: string }) => {
+        const elem = this._element?.querySelector(`#${childData.inputId}`) as HTMLInputElement
+        if (!childData.validator.test(elem.value)) {
+          error = true
+          return {
+            ...childData,
+            error: elem.value ? childData.errorText : 'Поле не должно быть пустым',
+            inputErrorClassName: 'error',
+          }
+        }
+        return childData
+      })
+
+      if (error) {
+        this.setProps({ children: newChildren })
+      } else {
+        window.location.href = './chats.html'
+      }
+    })
+  }
 }
 
-prepareTemplate(profileTemplate, data)
+// prepareTemplate(profileTemplate, data)
+render(new Profile(pageData))
