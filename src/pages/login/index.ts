@@ -3,7 +3,7 @@ import Block from '../../modules/block'
 import './login.scss'
 import prepareTemplate from '../../modules/prepare-template'
 import { LoginPageProps as PageProps } from './login-model'
-import pageData from './login-impl'
+import pageData from './login-data'
 import Input from '../../components/input/input'
 
 export default class Login extends Block {

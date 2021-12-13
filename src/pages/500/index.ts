@@ -2,7 +2,7 @@ import serverErrorTemplate from './server-error-template'
 import './server-error.scss'
 import prepareTemplate from '../../modules/prepare-template'
 import { PageServerErrorProps as PageProps } from './server-error-model'
-import pageData from './server-error-impl'
+import pageData from './server-error-data'
 import Block from '../../modules/block'
 
 export default class PageServerError extends Block {

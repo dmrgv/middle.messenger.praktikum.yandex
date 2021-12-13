@@ -3,7 +3,7 @@ import Block from '../../modules/block'
 import './register.scss'
 import prepareTemplate from '../../modules/prepare-template'
 import { RegisterPageProps as PageProps } from './register-model'
-import pageData from './register-impl'
+import pageData from './register-data'
 import Input from '../../components/input/input'
 
 export default class Register extends Block {

@@ -3,7 +3,7 @@ import Block from '../../modules/block'
 import './profile.scss'
 import prepareTemplate from '../../modules/prepare-template'
 import { ProfilePageProps as PageProps } from './profile-model'
-import pageData from './profile-impl'
+import pageData from './profile-data'
 import Input from '../../components/input/input'
 
 export default class Profile extends Block {
