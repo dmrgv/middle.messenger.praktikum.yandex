@@ -5,15 +5,15 @@ const buttonTemplate: string = `
       {{/if}}
     
       {{#if id}}
-        id='{{id}}'
+        id="{{id}}"
       {{/if}}
     
       {{#if type}}
-        type='{{type}}'
+        type="{{type}}"
       {{/if}}
     
       {{#if form}}
-        form='{{form}}'
+        form="{{form}}"
       {{/if}}
     
     >{{buttonText}}</button>
