@@ -8,6 +8,6 @@ export interface RegisterPageProps {
     validator: RegExp
     errorText: string
   }[]
-  button: string
-  submitButtonText?: string
+  signinButton: string
+  submitButton: string
 }

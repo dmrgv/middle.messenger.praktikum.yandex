@@ -3,12 +3,16 @@ import validator from '../../modules/validator'
 import { LoginPageProps } from './login-model'
 
 const pageData: LoginPageProps = {
-  button: new Button({
-    className: 'link',
-    id: 'login-sign-up',
+  loginButton: new Button({
+    className: 'button sign-in',
+    buttonText: 'Авторизоваться',
+    type: 'submit',
+    form: 'login-form',
+  }).render(),
+  backButton: new Button({
+    className: 'link sign-up',
     buttonText: 'Нет аккаунта?',
   }).render(),
-  loginButtonText: 'Авторизоваться',
   children: [
     {
       name: 'Логин',

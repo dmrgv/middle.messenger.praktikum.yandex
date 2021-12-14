@@ -11,7 +11,7 @@ export default class PageNotFound extends Block {
   }
 
   componentDidMount() {
-    this._element.querySelector('#go-back-404')?.addEventListener('click', () => {
+    this._element.querySelector('.go-back')?.addEventListener('click', () => {
       window.location.href = './chats.html'
     })
   }

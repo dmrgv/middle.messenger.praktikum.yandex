@@ -7,6 +7,6 @@ export interface LoginPageProps {
     validator: RegExp
     errorText: string
   }[]
-  button: string
-  loginButtonText?: string
+  loginButton: string
+  backButton: string
 }

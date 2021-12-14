@@ -4,16 +4,19 @@ import Button from '../../components/button/button'
 
 const pageData: ProfilePageProps = {
   logoutButton: new Button({
-    id: 'profile-logout',
+    className: 'link logout red',
     buttonText: 'Выйти',
-    className: 'link red',
   }).render(),
   backButton: new Button({
-    id: 'profile-back',
+    className: 'link go-back',
     buttonText: 'Назад',
-    className: 'link',
   }).render(),
-  submitButtonText: 'Сохранить',
+  submitButton: new Button({
+    className: 'button save',
+    buttonText: 'Сохранить',
+    type: 'submit',
+    form: 'profile-form',
+  }).render(),
   children: [
     {
       name: 'Фамилия',

@@ -5,8 +5,7 @@ const pageData: PageNotFoundProps = {
   title: '404',
   description: 'Такой страницы не существует.',
   button: new Button({
-    className: 'link',
-    id: 'go-back-404',
+    className: 'link go-back',
     buttonText: 'Вернуться к чатам',
   }).render(),
 }

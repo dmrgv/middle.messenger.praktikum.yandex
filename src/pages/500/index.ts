@@ -11,7 +11,7 @@ export default class PageServerError extends Block {
   }
 
   componentDidMount() {
-    this._element.querySelector('#go-back-500')?.addEventListener('click', () => {
+    this._element.querySelector('.go-back')?.addEventListener('click', () => {
       window.location.href = './chats.html'
     })
   }

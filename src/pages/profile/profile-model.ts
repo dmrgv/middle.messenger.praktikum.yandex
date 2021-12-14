@@ -10,5 +10,5 @@ export interface ProfilePageProps {
   }[]
   logoutButton: string
   backButton: string
-  submitButtonText?: string
+  submitButton: string
 }

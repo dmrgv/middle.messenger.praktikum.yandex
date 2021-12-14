@@ -4,10 +4,6 @@ const buttonTemplate: string = `
         class="{{className}}"
       {{/if}}
     
-      {{#if id}}
-        id="{{id}}"
-      {{/if}}
-    
       {{#if type}}
         type="{{type}}"
       {{/if}}

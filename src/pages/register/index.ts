@@ -12,7 +12,7 @@ export default class Register extends Block {
   }
 
   componentDidMount() {
-    this._element?.querySelector('#register-sign-in')?.addEventListener('click', () => {
+    this._element?.querySelector('.sign-in')?.addEventListener('click', () => {
       window.location.href = './index.html'
     })
 

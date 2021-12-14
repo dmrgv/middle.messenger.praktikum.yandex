@@ -9,8 +9,8 @@ const authTemplate = `
               {{/each}}
             </div>
             <div class="buttons-block">     
-              <button id="login-sign-in" type="submit" class="button" form="login-form">Авторизоваться</button>
-              {{{button}}}
+              {{{loginButton}}}
+              {{{backButton}}}
             </div>
         </form>
       </div>

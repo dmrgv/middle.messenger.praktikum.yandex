@@ -12,10 +12,10 @@ export default class Profile extends Block {
   }
 
   componentDidMount() {
-    this._element?.querySelector('#profile-logout')?.addEventListener('click', () => {
+    this._element?.querySelector('.logout')?.addEventListener('click', () => {
       window.location.href = './index.html'
     })
-    this._element?.querySelector('#profile-back')?.addEventListener('click', () => {
+    this._element?.querySelector('.go-back')?.addEventListener('click', () => {
       window.location.href = './chats.html'
     })
 

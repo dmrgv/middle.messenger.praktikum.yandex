@@ -4,7 +4,6 @@ import buttonTemplate from './button-template'
 interface ButtonProps {
   className?: string
   buttonText: string
-  id: string
   type?: string
   form?: string
 }

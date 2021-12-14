@@ -9,8 +9,8 @@ const profileTemplate = `
             <div class="buttons-block">
               {{{logoutButton}}}
               <div class="align-right">   
-                  {{{backButton}}}  
-                  <button id="profile-save" type="submit" class="button">{{submitButtonText}}</button>
+                  {{{backButton}}}                  
+                  {{{submitButton}}}
               </div>
             </div>
         </form>

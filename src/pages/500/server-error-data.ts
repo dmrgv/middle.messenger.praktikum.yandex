@@ -5,8 +5,7 @@ const pageData: PageServerErrorProps = {
   title: '500',
   description: 'Что-то пошло не так, уже решаем.',
   button: new Button({
-    className: 'link',
-    id: 'go-back-500',
+    className: 'link go-back',
     buttonText: 'Вернуться к чатам',
   }).render(),
 }

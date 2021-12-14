@@ -12,7 +12,7 @@ export default class Login extends Block {
   }
 
   componentDidMount() {
-    this._element?.querySelector('#login-sign-up')?.addEventListener('click', () => {
+    this._element?.querySelector('.sign-up')?.addEventListener('click', () => {
       window.location.href = './register.html'
     })
 

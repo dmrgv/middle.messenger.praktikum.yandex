@@ -3,12 +3,16 @@ import validator from '../../modules/validator'
 import { RegisterPageProps } from './register-model'
 
 const pageData: RegisterPageProps = {
-  button: new Button({
-    id: 'register-sign-in',
+  signinButton: new Button({
     buttonText: 'Войти',
-    className: 'link',
+    className: 'link sign-in',
   }).render(),
-  submitButtonText: 'Зарегистрироваться',
+  submitButton: new Button({
+    className: 'button sign-up',
+    buttonText: 'Зарегистрироваться',
+    type: 'submit',
+    form: 'register-form',
+  }).render(),
   children: [
     {
       name: 'Почта',

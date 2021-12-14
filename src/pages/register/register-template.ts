@@ -9,8 +9,8 @@ const registerTemplate = `
               {{/each}}
             </div>
             <div class="buttons-block">
-              <button id="register-sign-up" type="submit" class="button" form="register-form">Зарегистрироваться</button>
-              {{{button}}}  
+              {{{submitButton}}}
+              {{{signinButton}}}  
             </div>
         </form>
       </div>
