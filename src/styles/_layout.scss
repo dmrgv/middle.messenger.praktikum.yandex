@@ -27,8 +27,7 @@ body {
 
     input {
       width: 100%;
-      border-color: $formInputBorderColor;
-      border-width: 0 0 1px 0;
+      border: none;
       background: initial;
       outline: none;
       -webkit-tap-highlight-color: transparent;
@@ -41,6 +40,16 @@ body {
         transition: background-color 5000s ease-in-out 0s;
       }
     }
+
+    .bottom {
+      padding-top: 5px;
+      width: 100%;
+      border-top: 1px solid $formInputBorderColor;
+    }
+
+    .error {
+      color: $errorTextColor;
+    }
   }
 
   .button {
@@ -49,6 +58,7 @@ body {
     border: none;
     color: $formButtonTextColor;
     background-color: $formButtonBgColor;
+    cursor: pointer;
 
     &:hover {
       background-color: $formButtonBgHoverColor;
@@ -61,8 +71,10 @@ body {
 
   .link {
     background-color: initial;
+    border: none;
     color: $formLinkColor;
     padding: 10px 0;
+    cursor: pointer;
 
     &.red {
       color: $formLinkWarnColor;

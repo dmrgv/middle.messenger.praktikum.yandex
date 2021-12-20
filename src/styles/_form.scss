@@ -40,18 +40,11 @@
       padding: 0 30px;
       left: 0;
       right: 0;
-
-      label {
-        display: flex;
-        justify-content: center;
-
-        &:first-child {
-          margin-bottom: 5px;
-        }
-      }
+      text-align: center;
 
       .button {
         width: 100%;
+        margin-bottom: 5px;
       }
 
       a {
