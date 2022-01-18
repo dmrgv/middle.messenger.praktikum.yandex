@@ -1,4 +1,5 @@
 import isEqual from '../utils/equal'
+import Block from './block'
 import prepareTemplate from './prepare-template'
 
 type Nullable<T> = T | null
@@ -6,13 +7,13 @@ type Nullable<T> = T | null
 class Route {
   _pathname: string
 
-  _blockClass: object
+  _blockClass: typeof Block
 
-  _block: Nullable<object>
+  _block: Nullable<Block>
 
   _props: object
 
-  constructor(pathname: string, view: object, props = {}) {
+  constructor(pathname: string, view: typeof Block, props = {}) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
@@ -28,7 +29,7 @@ class Route {
 
   leave() {
     if (this._block) {
-      this._block.hide()
+      this._block.getContent().remove()
     }
   }
 
