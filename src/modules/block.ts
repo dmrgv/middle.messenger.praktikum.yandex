@@ -1,4 +1,5 @@
 import * as Handlebars from 'handlebars'
+import isEqual from '../utils/equal'
 import EventBus from './event-bus'
 
 export default class Block {
@@ -7,6 +8,7 @@ export default class Block {
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_RENDER: 'flow:render',
     FLOW_CDU: 'flow:component-did-update',
+    FLOW_CWU: 'flow:component-will-unmount',
   }
 
   _element: HTMLElement
@@ -20,20 +22,20 @@ export default class Block {
 
   props: { [key: string]: any }
 
+  state: { [key: string]: any }
+
   eventBus: () => EventBus
 
-  constructor(template: string, props = {}) {
+  constructor(template: string, props = {}, state = {}) {
     const eventBus = new EventBus()
-    this._meta = {
-      template,
-      props,
-    }
 
+    this._meta = { template, props }
     this.props = this._makePropsProxy(props)
+    this.state = this._makePropsProxy(state, this.state)
     this.eventBus = () => eventBus
     this._element = document.createElement('div')
-    this._registerEvents(eventBus)
 
+    this._registerEvents(eventBus)
     eventBus.emit(Block.EVENTS.FLOW_CWM)
   }
 
@@ -76,7 +78,7 @@ export default class Block {
     return this._element
   }
 
-  _makePropsProxy(props: { [key: string]: any }) {
+  _makePropsProxy(props: { [key: string]: any }, propsVar: { [key: string]: any } = this.props) {
     return new Proxy(props, {
       get(target, prop: string) {
         if (prop.startsWith('_')) {
@@ -93,7 +95,7 @@ export default class Block {
         // eslint-disable-next-line no-param-reassign
         target[prop] = value
 
-        this.eventBus().emit(Block.EVENTS.FLOW_CDU, this.props, target)
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, propsVar, target)
         return true
       },
       deleteProperty() {
@@ -124,6 +126,16 @@ export default class Block {
   }
 
   componentDidUpdate(oldProps: { [key: string]: any }, newProps: { [key: string]: any }) {
-    return oldProps !== newProps
+    return !isEqual(oldProps, newProps)
+  }
+
+  _componentWillUnmount() {
+    this.componentWillUnmount()
+  }
+
+  componentWillUnmount() {}
+
+  hide() {
+    this.eventBus().emit(Block.EVENTS.FLOW_CWU)
   }
 }

@@ -1,4 +1,7 @@
 import Route from './route'
+import Block from './block'
+
+type Constructable<T = any> = new (...args: any[]) => T
 
 class Router {
   routes: Route[]
@@ -24,7 +27,7 @@ class Router {
     Router.__instance = this
   }
 
-  use(pathname: string, block: object) {
+  use(pathname: string, block: Constructable<Block>) {
     const route = new Route(pathname, block, { rootQuery: this._rootQuery })
     this.routes.push(route)
 
@@ -32,8 +35,8 @@ class Router {
   }
 
   start() {
-    window.onpopstate = (event) => {
-      this._onRoute(event?.currentTarget?.location.pathname)
+    window.onpopstate = (event: PopStateEvent) => {
+      this._onRoute((event?.currentTarget as HTMLFormElement)?.location.pathname)
     }
 
     this._onRoute(window.location.pathname)
@@ -58,12 +61,10 @@ class Router {
 
   back() {
     this.history.back()
-    // this._onRoute(pathname);
   }
 
   forward() {
     this.history.forward()
-    // this._onRoute(pathname);
   }
 
   getRoute(pathname: string) {

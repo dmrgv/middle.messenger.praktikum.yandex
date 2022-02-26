@@ -1,18 +1,20 @@
 import isEqual from '../utils/equal'
 import prepareTemplate from './prepare-template'
+import Block from './block'
 
 type Nullable<T> = T | null
+type Constructable<T = any> = new (...args: any[]) => T
 
 class Route {
   _pathname: string
 
-  _blockClass: object
+  _blockClass: Constructable<Block>
 
-  _block: Nullable<object>
+  _block: Nullable<Block>
 
   _props: object
 
-  constructor(pathname: string, view: object, props = {}) {
+  constructor(pathname: string, view: Constructable<Block>, props = {}) {
     this._pathname = pathname
     this._blockClass = view
     this._block = null
@@ -38,12 +40,9 @@ class Route {
 
   render() {
     if (!this._block) {
-      this._block = new this._blockClass()
-      prepareTemplate(this._block)
-      return
+      this._block = new this._blockClass('div', this._props)
+      prepareTemplate(this._block as Block)
     }
-
-    this._block.show()
   }
 }
 
