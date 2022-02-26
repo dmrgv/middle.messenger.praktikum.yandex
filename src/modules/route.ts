@@ -1,6 +1,6 @@
 import isEqual from '../utils/equal'
-import prepareTemplate from './prepare-template'
 import Block from './block'
+import prepareTemplate from './prepare-template'
 
 type Nullable<T> = T | null
 type Constructable<T = any> = new (...args: any[]) => T
@@ -30,7 +30,7 @@ class Route {
 
   leave() {
     if (this._block) {
-      this._block.hide()
+      this._block.getContent().remove()
     }
   }
 
