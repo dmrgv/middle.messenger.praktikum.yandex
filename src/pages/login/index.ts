@@ -1,21 +1,19 @@
 import authTemplate from './auth-template'
 import Block from '../../modules/block'
 import './login.scss'
-import prepareTemplate from '../../modules/prepare-template'
-import { LoginPageProps as PageProps } from './login-model'
 import pageData from './login-data'
 import Input from '../../components/input/input'
 import router from '../../modules/routing'
 
 export default class Login extends Block {
-  constructor(props: PageProps) {
-    super(authTemplate, props)
+  constructor() {
+    super(authTemplate, pageData)
   }
 
   componentDidMount() {
     this._element?.querySelector('.sign-up')?.addEventListener('click', () => {
       // window.location.href = './register.html'
-      router.go('')
+      router.go('/sign-in')
     })
 
     const form = this._element?.getElementsByTagName('form')[0] as HTMLFormElement
@@ -52,10 +50,9 @@ export default class Login extends Block {
       if (error) {
         this.setProps({ children: newChildren })
       } else {
-        window.location.href = './chats.html'
+        // window.location.href = './chats.html'
+        router.go('/messenger')
       }
     })
   }
 }
-
-prepareTemplate(new Login(pageData))

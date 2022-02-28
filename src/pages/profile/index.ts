@@ -1,22 +1,23 @@
 import profileTemplate from './profile-template'
 import Block from '../../modules/block'
 import './profile.scss'
-import prepareTemplate from '../../modules/prepare-template'
-import { ProfilePageProps as PageProps } from './profile-model'
 import pageData from './profile-data'
 import Input from '../../components/input/input'
+import router from '../../modules/routing'
 
 export default class Profile extends Block {
-  constructor(props: PageProps) {
-    super(profileTemplate, props)
+  constructor() {
+    super(profileTemplate, pageData)
   }
 
   componentDidMount() {
     this._element?.querySelector('.logout')?.addEventListener('click', () => {
-      window.location.href = './index.html'
+      // window.location.href = './index.html'
+      router.go('/')
     })
     this._element?.querySelector('.go-back')?.addEventListener('click', () => {
-      window.location.href = './chats.html'
+      // window.location.href = './chats.html'
+      router.go('/messenger')
     })
 
     const form = this._element?.getElementsByTagName('form')[0] as HTMLFormElement
@@ -47,10 +48,9 @@ export default class Profile extends Block {
       if (error) {
         this.setProps({ children: newChildren })
       } else {
-        window.location.href = './chats.html'
+        // window.location.href = './chats.html'
+        router.go('/messenger')
       }
     })
   }
 }
-
-prepareTemplate(new Profile(pageData))

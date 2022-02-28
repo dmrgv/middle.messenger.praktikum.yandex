@@ -1,14 +1,13 @@
 import authTemplate from './register-template'
 import Block from '../../modules/block'
 import './register.scss'
-import prepareTemplate from '../../modules/prepare-template'
-import { RegisterPageProps as PageProps } from './register-model'
 import pageData from './register-data'
 import Input from '../../components/input/input'
+import router from '../../modules/routing'
 
 export default class Register extends Block {
-  constructor(props: PageProps) {
-    super(authTemplate, props)
+  constructor() {
+    super(authTemplate, pageData)
   }
 
   componentDidMount() {
@@ -44,10 +43,9 @@ export default class Register extends Block {
       if (error) {
         this.setProps({ children: newChildren })
       } else {
-        window.location.href = './chats.html'
+        // window.location.href = './chats.html'
+        router.go('/messenger')
       }
     })
   }
 }
-
-prepareTemplate(new Register(pageData))
