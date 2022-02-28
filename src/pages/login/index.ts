@@ -5,6 +5,7 @@ import prepareTemplate from '../../modules/prepare-template'
 import { LoginPageProps as PageProps } from './login-model'
 import pageData from './login-data'
 import Input from '../../components/input/input'
+import router from '../../modules/routing'
 
 export default class Login extends Block {
   constructor(props: PageProps) {
@@ -13,7 +14,8 @@ export default class Login extends Block {
 
   componentDidMount() {
     this._element?.querySelector('.sign-up')?.addEventListener('click', () => {
-      window.location.href = './register.html'
+      // window.location.href = './register.html'
+      router.go('')
     })
 
     const form = this._element?.getElementsByTagName('form')[0] as HTMLFormElement

@@ -4,6 +4,7 @@ import prepareTemplate from '../../modules/prepare-template'
 import { PageServerErrorProps as PageProps } from './server-error-model'
 import pageData from './server-error-data'
 import Block from '../../modules/block'
+import router from '../../modules/routing'
 
 export default class PageServerError extends Block {
   constructor(props: PageProps) {
@@ -12,7 +13,8 @@ export default class PageServerError extends Block {
 
   componentDidMount() {
     this._element.querySelector('.go-back')?.addEventListener('click', () => {
-      window.location.href = './chats.html'
+      // window.location.href = './chats.html'
+      router.go('/messenger')
     })
   }
 }
