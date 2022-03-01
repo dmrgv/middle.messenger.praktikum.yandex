@@ -27,8 +27,8 @@ class Router {
     Router.__instance = this
   }
 
-  use(pathname: string, block: Constructable<Block>) {
-    const route = new Route(pathname, block, { rootQuery: this._rootQuery })
+  use(pathname: string, block: Constructable<Block>, props = {}) {
+    const route = new Route(pathname, block, { ...props, rootQuery: this._rootQuery })
     this.routes.push(route)
 
     return this
