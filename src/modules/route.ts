@@ -41,7 +41,7 @@ class Route {
   render() {
     if (!this._block) {
       this._block = new this._blockClass('div', this._props)
-      prepareTemplate(this._block as Block)
+      prepareTemplate(this._block, document.getElementsByClassName('app')[0] as HTMLElement)
     }
   }
 }

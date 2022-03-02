@@ -1,7 +1,6 @@
-function prepareTemplate(component: object, root: HTMLElement = document.body) {
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   root.append(component.getContent())
-  // })
+import Block from './block'
+
+function prepareTemplate(component: Block, root: HTMLElement = document.body) {
   // eslint-disable-next-line no-param-reassign
   root.innerHTML = ''
   root.append(component.getContent())

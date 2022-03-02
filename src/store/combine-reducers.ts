@@ -18,9 +18,7 @@ function combineReducers(reducers: { [key: string]: Function }): [Function, obje
         const key = finalReducerKeys[i]
         const reducer = finalReducers[key]
         const previousStateForKey = state[key]
-        const nextStateForKey = reducer(previousStateForKey, action)
-
-        nextState[key] = nextStateForKey
+        nextState[key] = reducer(previousStateForKey, action)
       }
       return nextState
     },
