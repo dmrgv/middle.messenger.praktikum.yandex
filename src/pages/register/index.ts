@@ -43,7 +43,16 @@ export default class Register extends Block {
       if (error) {
         this.setProps({ children: newChildren })
       } else {
-        // window.location.href = './chats.html'
+        const formData = new FormData(form)
+        const registrationData = {
+          first_name: formData.get('first_name'),
+          second_name: formData.get('second_name'),
+          login: formData.get('login'),
+          email: formData.get('email'),
+          password: formData.get('password'),
+          phone: formData.get('phone'),
+        }
+
         router.go('/messenger')
       }
     })

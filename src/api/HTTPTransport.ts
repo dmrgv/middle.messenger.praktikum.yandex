@@ -11,33 +11,33 @@ function queryStringify(data = {}) {
     .join('&')
 }
 
-function setXHRHeaders(xhr, headers) {
+function setXHRHeaders(xhr: XMLHttpRequest, headers: map[string]:string) {
   if (headers) {
     Object.entries(headers).forEach(([key, value]) => xhr.setRequestHeader(key, value))
   }
 }
 
 class HTTPTransport {
-  get(url, options = {}) {
+  get(url: string, options = {}) {
     const query = queryStringify(options.data)
     const urlWithParams = query ? `${url}?${query}` : url
 
     return this.request(urlWithParams, { ...options, method: METHODS.GET }, options.timeout)
   }
 
-  put(url, options = {}) {
+  put(url: string, options = {}) {
     return this.request(url, { ...options, method: METHODS.PUT }, options.timeout)
   }
 
-  post(url, options = {}) {
+  post(url: string, options = {}) {
     return this.request(url, { ...options, method: METHODS.POST }, options.timeout)
   }
 
-  delete(url, options = {}) {
+  delete(url: string, options = {}) {
     return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout)
   }
 
-  request(url, options, timeout = 5000) {
+  request(url: string, options, timeout = 5000) {
     const { method, headers, data } = options
 
     return new Promise((resolve, reject) => {
