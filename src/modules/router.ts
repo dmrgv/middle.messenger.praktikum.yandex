@@ -1,7 +1,4 @@
 import Route from './route'
-import Block from './block'
-
-type Constructable<T = any> = new (...args: any[]) => T
 
 class Router {
   routes: Route[]
@@ -27,8 +24,8 @@ class Router {
     Router.__instance = this
   }
 
-  use(pathname: string, block: Constructable<Block>, props = {}) {
-    const route = new Route(pathname, block, { ...props, rootQuery: this._rootQuery })
+  use(pathname: string, view: Function, props = {}) {
+    const route = new Route(pathname, view, { ...props, rootQuery: this._rootQuery })
     this.routes.push(route)
 
     return this
@@ -46,7 +43,7 @@ class Router {
     const route = this.getRoute(pathname)
     if (!route) throw new Error(`Not found route: ${pathname}`)
 
-    if (this._currentRoute) {
+    if (this._currentRoute && this._currentRoute !== route) {
       this._currentRoute.leave()
     }
 
@@ -72,4 +69,6 @@ class Router {
   }
 }
 
-export default Router
+const router = new Router('.app')
+
+export default router

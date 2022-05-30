@@ -1,6 +1,19 @@
+// @ts-ignore
+import { v4 as makeUUID } from 'uuid'
 import * as Handlebars from 'handlebars'
 import isEqual from '../utils/equal'
 import EventBus from './event-bus'
+
+type TChildrenBlock<T> = {
+  [P in keyof T]: T[P]
+}
+
+type TPropsAndChildren<T> = T & {
+  __id: string
+  settings?: { withInternalID?: boolean }
+  events?: { [key: string]: (event?: Event) => void }
+  children?: TChildrenBlock<any>
+}
 
 export default class Block {
   static EVENTS = {
@@ -11,32 +24,29 @@ export default class Block {
     FLOW_CWU: 'flow:component-will-unmount',
   }
 
+  _id: string
+
   _element: HTMLElement
 
   _meta: {
-    template: string
+    tagName: string
     props: Record<string, any>
   }
 
-  _children: HTMLElement[]
-
   props: { [key: string]: any }
 
-  state: { [key: string]: any }
+  children: { [key: string]: any }
 
-  eventBus: () => EventBus
+  eventBus: EventBus = new EventBus()
 
-  constructor(template: string, props = {}, state = {}) {
-    const eventBus = new EventBus()
-
-    this._meta = { template, props }
-    this.props = this._makePropsProxy(props)
-    this.state = this._makePropsProxy(state, this.state)
-    this.eventBus = () => eventBus
-    this._element = document.createElement('div')
-
-    this._registerEvents(eventBus)
-    eventBus.emit(Block.EVENTS.FLOW_CWM)
+  constructor(tagName: string, propsAndChildren = {}) {
+    this._id = makeUUID()
+    const { children, props } = this.getChildren(propsAndChildren)
+    this._meta = { tagName, props }
+    this.props = this._makePropsProxy({ ...props, __id: this._id })
+    this.children = children
+    this._registerEvents(this.eventBus)
+    this.eventBus.emit(Block.EVENTS.FLOW_CWM)
   }
 
   _registerEvents(eventBus: EventBus) {
@@ -54,25 +64,64 @@ export default class Block {
     Object.assign(this.props, nextProps)
   }
 
-  compile(props: object): string {
-    return Handlebars.compile(this._meta.template)(props)
+  getChildren(propsAndChildren: TPropsAndChildren<any>) {
+    const children = {} as TChildrenBlock<any>
+    const props = {} as { [key: string]: any }
+
+    Object.entries(propsAndChildren).forEach(([key, value]) => {
+      if (value instanceof Block) {
+        children[key] = value
+      } else {
+        props[key] = value
+      }
+    })
+    return { children, props }
+  }
+
+  compile(template: string, props: object): DocumentFragment {
+    const propsAndStubs: { [key: string]: any } = { ...props }
+
+    Object.entries(this.children).forEach(([key, child]) => {
+      propsAndStubs[key] = `<div data-id="${(child as Block)._id}"></div>`
+    })
+    const fragment = document.createElement('template') as HTMLTemplateElement
+    fragment.innerHTML = Handlebars.compile(template)(propsAndStubs)
+
+    Object.values(this.children).forEach((child: Block) => {
+      const stub = fragment.content.querySelector(`[data-id="${child._id}"]`) as Element
+      stub.replaceWith(child.getContent())
+    })
+
+    return fragment.content
   }
 
   _render() {
-    this._element.innerHTML = this.render()
-
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM)
+    const block = this.render()
+    // this.removeEvents()
+    this._element.innerHTML = ''
+    this._element.appendChild(block as unknown as Node)
+    // this.addEvents()
   }
 
   render() {
-    return this.compile(this.props)
+    // return this.compile(this.props)
   }
 
-  _htmlToDocumentFragment(html: string) {
-    const template = document.createElement('template')
-    template.innerHTML = html.trim()
-    return template.content
+  /* private addEvents() {
+    const { events = {} } = this.props
+
+    Object.keys(events).forEach((eventName) => {
+      this._element.addEventListener(eventName, events[eventName])
+    })
   }
+
+  private removeEvents() {
+    const { events = {} } = this.props
+
+    Object.keys(events).forEach((eventName) => {
+      this._element.removeEventListener(eventName, events[eventName])
+    })
+  } */
 
   getContent(): HTMLElement {
     return this._element
@@ -95,7 +144,7 @@ export default class Block {
         // eslint-disable-next-line no-param-reassign
         target[prop] = value
 
-        this.eventBus().emit(Block.EVENTS.FLOW_CDU, propsVar, target)
+        this.eventBus.emit(Block.EVENTS.FLOW_CDU, propsVar, target)
         return true
       },
       deleteProperty() {
@@ -106,22 +155,29 @@ export default class Block {
 
   _componentWillMount() {
     this.componentWillMount()
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+    this.eventBus.emit(Block.EVENTS.FLOW_CWM)
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    this._element = document.createElement(this._meta?.tagName)
+  }
 
   _componentDidMount() {
+    Object.values(this.children).forEach((child: Block) => {
+      child.componentDidMount()
+    })
     this.componentDidMount()
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.eventBus.emit(Block.EVENTS.FLOW_CDM)
+  }
 
-  _componentDidUpdate(oldProps: { [key: string]: any }, newProps: { [key: string]: any }) {
+  _componentDidUpdate(oldProps: TPropsAndChildren<{ [key: string]: any }>, newProps: TPropsAndChildren<{ [key: string]: any }>) {
     const response = this.componentDidUpdate(oldProps, newProps)
 
     if (response) {
-      this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
+      this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
     }
   }
 
@@ -133,9 +189,15 @@ export default class Block {
     this.componentWillUnmount()
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    this.eventBus.emit(Block.EVENTS.FLOW_CWU)
+  }
+
+  show() {
+    this.getContent().style.display = 'block'
+  }
 
   hide() {
-    this.eventBus().emit(Block.EVENTS.FLOW_CWU)
+    this.getContent().style.display = 'none'
   }
 }
